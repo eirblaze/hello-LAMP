@@ -1,0 +1,22 @@
+# Redmine を docker-compose で秒殺起動する http://sig9.hatenablog.com/entry/2019/07/06/000000
+
+version: '3.7'
+
+services:
+    hello-mysql:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: redmine
+            MYSQL_DATABASE: redmine
+        volumes:
+            - ./data/db:/var/lib/mysql
+        command: --default-authentication-plugin=mysql_native_password
+        ports:
+            - 3306:3306
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
