@@ -1,4 +1,4 @@
-# Redmine を docker-compose で秒殺起動する http://sig9.hatenablog.com/entry/2019/07/06/000000
+# phpMyAdmin on docker が便利すぎる https://qiita.com/furu8ma/items/50718efebee20fd24517
 
 version: '3.7'
 
