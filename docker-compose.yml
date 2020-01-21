@@ -26,6 +26,7 @@ services:
     ports:
       - "1080:1080"
 
+  # phpMyAdmin on docker が便利すぎる https://qiita.com/furu8ma/items/50718efebee20fd24517
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
