@@ -1,8 +1,8 @@
 <?php
 // https://www.php.net/manual/ja/pdo.connections.php
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=test', $user, $pass);
-    foreach($dbh->query('SELECT * from FOO') as $row) {
+    $dbh = new PDO('mysql:host=mysql;dbname=test', $user, $pass);
+    foreach($dbh->query('SELECT * from testt') as $row) {
         print_r($row);
     }
     $dbh = null;
