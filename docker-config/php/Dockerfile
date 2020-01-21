@@ -2,15 +2,15 @@ From php:7.3-apache
 MAINTAINER eirblaze@live.jp
 
 # 共通設定
-RUN apt -y update
-
+RUN apt -y update && \
+#
 # mailcatcher にメールを送る仕掛け
-RUN apt install \
+  apt install \
   msmtp msmtp-mta \
-  -y
-
+  -y && \
+#
 # XDebug
-RUN pecl install xdebug \
+  pecl install xdebug \
   && docker-php-ext-enable xdebug
 # 上記を実行することで/usr/local/etc/php/conf.d/docker-php-ext-xdebug.iniに
 # zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so
