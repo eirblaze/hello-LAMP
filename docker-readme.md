@@ -45,11 +45,11 @@ http://127.0.0.1:1080
 
 ### コマンド継続実行
 
-`sudo docker exec -i -t phpのコンテナ名 /bin/sh`
+`docker exec -i -t phpのコンテナ名 /bin/sh`
 
 #### 例
 
-`sudo docker exec -it hello-mysql_php_1 bash`
+`docker exec -it hello-mysql_php_1 bash`
 
 ### コマンド単発実行
 
