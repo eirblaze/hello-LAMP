@@ -17,5 +17,11 @@ echo "<p>" . $_SERVER['REMOTE_ADDR'] . "</p>" . PHP_EOL;
   <li>
     <a href="http://127.0.0.1:1080" target="_blank">mailcatcher</a>
   </li>
+  <li>
+    <a href="http://127.0.0.1:8081" target="_blank">phpmyadmin</a>
+  </li>
+  <li>
+    <a href="./pdo.php">PDO</a>
+  </li>
 </ul>
 
