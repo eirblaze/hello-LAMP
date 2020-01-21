@@ -1,4 +1,4 @@
-From php:7.3-apache
+From php:7.4-apache
 MAINTAINER eirblaze@live.jp
 
 # 共通設定
