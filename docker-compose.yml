@@ -1,25 +1,20 @@
-# phpMyAdmin on docker が便利すぎる https://qiita.com/furu8ma/items/50718efebee20fd24517
-
-version: '3.7'
-
+version: '3'
 services:
-    mysql:
-        image: mysql
-        volumes:
-          - ./data/db:/var/lib/mysql
-        environment:
-          - MYSQL_ROOT_PASSWORD=password
 
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        environment:
-          - PMA_ARBITRARY=1
-          - PMA_HOST=mysql
-          - PMA_USER=root
-          - PMA_PASSWORD=password
-        links:
-          - mysql
-        ports:
-           - 8080:80
-        volumes:
-           - /sessions
+  php:
+    build: ./docker-config/php
+    volumes:
+      - ./public_html:/var/www/html
+      - ./docker-config/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker-config/php/msmtprc:/etc/msmtprc
+    ports:
+      - "8080:80"
+
+  # mailcatcher
+  # https://hub.docker.com/r/schickling/mailcatcher/
+  # https://qiita.com/reflet/items/6e7c8d7850ff9cdb5d92
+  # docker run -d -p 1080:1080 --name mailcatcher schickling/mailcatcher
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
