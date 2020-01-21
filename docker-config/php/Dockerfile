@@ -10,10 +10,13 @@ RUN apt -y update && \
   -y && \
 #
 # XDebug
-  pecl install xdebug \
-  && docker-php-ext-enable xdebug
+  pecl install xdebug && \
+  docker-php-ext-enable xdebug
 # 上記を実行することで/usr/local/etc/php/conf.d/docker-php-ext-xdebug.iniに
 # zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so
 # が出力されます。(内容は個人によって異なる可能性があります)
+#
+# PDO - MySQL
+#  docker-php-ext-enable pdo pdo_mysql
 
 WORKDIR /var/www
