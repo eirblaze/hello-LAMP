@@ -18,3 +18,24 @@ services:
     image: schickling/mailcatcher
     ports:
       - "1080:1080"
+
+  mysql:
+    image: mysql
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    links:
+      - mysql
+    ports:
+      - 8080:80
+    volumes:
+      - /sessions
