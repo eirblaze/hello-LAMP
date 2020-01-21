@@ -10,4 +10,3 @@ try {
     print "エラー!: " . $e->getMessage() . "<br/>";
     die();
 }
-?>
